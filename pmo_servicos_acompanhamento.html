@@ -53,22 +53,27 @@
         }
         /* Botão "Voltar ao menu" no canto superior direito */
         .back-button {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            z-index: 50;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.45rem 0.75rem;
+            padding: 0.5rem 1rem;
             background: #0ea5e9;
             color: #ffffff;
             border-radius: 0.5rem;
             font-weight: 600;
+            font-size: 0.875rem;
             text-decoration: none;
+            white-space: nowrap;
             box-shadow: 0 4px 10px rgba(2,6,23,0.08);
+            transition: background 0.2s ease;
         }
         .back-button:hover { background: #0284c7; }
+        @media (max-width: 768px) {
+            .back-button {
+                padding: 0.4rem 0.75rem;
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 h-screen overflow-hidden antialiased">
