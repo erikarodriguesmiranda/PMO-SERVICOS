@@ -2,7 +2,7 @@
 <html class="staticrypt-html">
     <head>
         <meta charset="utf-8" />
-        <title>Protected Page</title>
+        <title>PMO Serviços • Acesso Protegido</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <!-- do not cache this page -->
@@ -13,81 +13,30 @@
         <meta http-equiv="pragma" content="no-cache" />
 
         <style>
-            .staticrypt-hr {
-                margin-top: 20px;
-                margin-bottom: 20px;
-                border: 0;
-                border-top: 1px solid #eee;
+            :root {
+                color-scheme: light;
+                --bg: #f8fafc;
+                --panel: #ffffff;
+                --panel-border: rgba(226, 232, 240, 0.8);
+                --text: #0f172a;
+                --muted: #64748b;
+                --accent: #0ea5e9;
+                --accent-strong: #0284c7;
+                --input-bg: #f8fafc;
+                --input-border: #cbd5e1;
+                --shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
             }
 
-            .staticrypt-page {
-                width: 360px;
-                padding: 8% 0 0;
-                margin: auto;
+            * {
                 box-sizing: border-box;
             }
 
-            .staticrypt-form {
-                position: relative;
-                z-index: 1;
-                background: #ffffff;
-                max-width: 360px;
-                margin: 0 auto 100px;
-                padding: 45px;
-                text-align: center;
-                box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-            }
-
-            .staticrypt-form input[type="password"],
-            input[type="text"] {
-                background: inherit;
-                border: 0;
-                box-sizing: border-box; /* This ensures padding is included in the total width */
-                font-size: 14px;
-                outline: 0;
-                padding: 15px 30px 15px 15px; /* Adjust the padding to ensure there is space for the icon */
-                width: 100%;
-            }
-
-            .staticrypt-password-container {
-                position: relative;
-                outline: 0;
-                background: #f2f2f2;
-                width: 100%;
-                border: 0;
-                margin: 0 0 15px;
-                box-sizing: border-box;
-            }
-
-            .staticrypt-toggle-password-visibility {
-                cursor: pointer;
-                height: 20px;
-                opacity: 60%;
-                padding: 13px;
-                position: absolute;
-                right: 0;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 20px;
-            }
-
-            .staticrypt-form .staticrypt-decrypt-button {
-                text-transform: uppercase;
-                outline: 0;
-                background: #4CAF50;
-                width: 100%;
-                border: 0;
-                padding: 15px;
-                color: #ffffff;
-                font-size: 14px;
-                cursor: pointer;
-            }
-
-            .staticrypt-form .staticrypt-decrypt-button:hover,
-            .staticrypt-form .staticrypt-decrypt-button:active,
-            .staticrypt-form .staticrypt-decrypt-button:focus {
-                background: #4CAF50;
-                filter: brightness(92%);
+            html, body {
+                min-height: 100%;
+                margin: 0;
+                font-family: Inter, Arial, sans-serif;
+                color: var(--text);
+                background: #f1f5f9;
             }
 
             .staticrypt-html {
@@ -95,37 +44,171 @@
             }
 
             .staticrypt-body {
-                height: 100%;
+                min-height: 100vh;
                 margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 24px 16px;
             }
 
             .staticrypt-content {
-                height: 100%;
-                margin-bottom: 1em;
-                background: #76B852;
-                font-family: "Arial", sans-serif;
-                -webkit-font-smoothing: antialiased;
-                -moz-osx-font-smoothing: grayscale;
+                position: relative;
+                width: 100%;
+                max-width: 420px;
+                margin: 0 auto;
+                min-height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .staticrypt-page {
+                width: 100%;
+                max-width: 520px;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .staticrypt-form {
+                position: relative;
+                z-index: 1;
+                background: var(--panel);
+                border: 1px solid rgba(148, 163, 184, 0.35);
+                border-radius: 24px;
+                padding: 36px 30px;
+                text-align: left;
+                box-shadow: var(--shadow);
+            }
+
+            .staticrypt-brand {
+                display: grid;
+                gap: 10px;
+                margin-bottom: 18px;
+                text-align: center;
+                align-items: center;
+            }
+
+            .staticrypt-logo-wrapper {
+                width: 132px;
+                height: 132px;
+                border-radius: 26px;
+                background: transparent;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                margin: 0 auto;
+            }
+
+            .staticrypt-logo-image {
+                width: auto;
+                height: 72px;
+                display: block;
+            }
+
+            .staticrypt-heading {
+                margin: 0;
+                font-size: 1.4rem;
+                line-height: 1.25;
+                font-weight: 500;
+                color: #0f172a;
+                text-align: center;
+            }
+
+            .staticrypt-subtitle {
+                margin: 0;
+                font-size: 1.55rem;
+                line-height: 1.2;
+                font-weight: 800;
+                color: #0f172a;
+                text-align: center;
+            }
+
+            .staticrypt-description {
+                margin: 0;
+                color: #475569;
+                line-height: 1.7;
+                font-size: 0.92rem;
+                text-align: center;
+            }
+
+
+
+            .staticrypt-form input[type="password"],
+            input[type="text"] {
+                background: #eff6ff;
+                border: 1px solid #bfdbfe;
+                border-radius: 14px;
+                box-sizing: border-box;
+                font-size: 1rem;
+                color: var(--text);
+                outline: none;
+                padding: 16px 44px 16px 16px;
+                width: 100%;
+            }
+
+            .staticrypt-password-container {
+                position: relative;
+                width: 100%;
+                margin: 0 0 20px;
+            }
+
+            .staticrypt-toggle-password-visibility {
+                cursor: pointer;
+                opacity: 0.72;
+                padding: 12px;
+                position: absolute;
+                right: 8px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 28px;
+                height: 28px;
+            }
+
+            .staticrypt-form .staticrypt-decrypt-button {
+                text-transform: uppercase;
+                outline: 0;
+                background: #0ea5e9;
+                width: 100%;
+                border: 0;
+                border-radius: 16px;
+                padding: 16px;
+                color: #ffffff;
+                font-size: 0.95rem;
+                font-weight: 700;
+                letter-spacing: 0.04em;
+                cursor: pointer;
+            }
+
+            .staticrypt-form .staticrypt-decrypt-button:hover,
+            .staticrypt-form .staticrypt-decrypt-button:active,
+            .staticrypt-form .staticrypt-decrypt-button:focus {
+                filter: brightness(1.05);
             }
 
             .staticrypt-instructions {
-                margin-top: -1em;
-                margin-bottom: 1em;
+                margin: 0;
             }
 
             .staticrypt-title {
-                font-size: 1.5em;
+                font-size: 1.75rem;
+                margin: 0;
+                letter-spacing: -0.02em;
             }
 
             label.staticrypt-remember {
                 display: flex;
                 align-items: center;
-                margin-bottom: 1em;
+                margin-bottom: 1.4em;
+                color: #475569;
+                font-size: 0.95rem;
+                gap: 0.65em;
             }
 
             .staticrypt-remember input[type="checkbox"] {
-                transform: scale(1.5);
-                margin-right: 1em;
+                transform: scale(1.1);
+                margin: 0;
             }
 
             .hidden {
@@ -144,19 +227,10 @@
                 width: 2rem;
                 height: 2rem;
                 vertical-align: text-bottom;
-                border: 0.25em solid gray;
+                border: 0.25em solid rgba(148, 163, 184, 0.8);
                 border-right-color: transparent;
                 border-radius: 50%;
-                -webkit-animation: spinner-border 0.75s linear infinite;
                 animation: spinner-border 0.75s linear infinite;
-                animation-duration: 0.75s;
-                animation-timing-function: linear;
-                animation-delay: 0s;
-                animation-iteration-count: infinite;
-                animation-direction: normal;
-                animation-fill-mode: none;
-                animation-play-state: running;
-                animation-name: spinner-border;
             }
 
             @keyframes spinner-border {
@@ -171,6 +245,43 @@
                     font-size: 16px;
                 }
             }
+
+            @media (max-width: 560px) {
+                .staticrypt-form {
+                    padding: 24px 18px;
+                    border-radius: 22px;
+                }
+
+                .staticrypt-heading {
+                    font-size: 1.35rem;
+                }
+
+                .staticrypt-subtitle {
+                    font-size: 1.35rem;
+                }
+
+                .staticrypt-description {
+                    font-size: 0.9rem;
+                }
+
+                .staticrypt-logo-wrapper {
+                    width: 90px;
+                    height: 90px;
+                }
+
+                .staticrypt-logo-image {
+                    height: 48px;
+                }
+
+                .staticrypt-brand {
+                    gap: 12px;
+                }
+
+                .staticrypt-form input[type="password"],
+                input[type="text"] {
+                    padding: 14px 42px 14px 14px;
+                }
+            }
         </style>
     </head>
 
@@ -182,12 +293,17 @@
         <div id="staticrypt_content" class="staticrypt-content hidden">
             <div class="staticrypt-page">
                 <div class="staticrypt-form">
-                    <div class="staticrypt-instructions">
-                        <p class="staticrypt-title">Protected Page</p>
-                        <p></p>
+                    <div class="staticrypt-brand">
+                        <div class="staticrypt-logo-wrapper">
+                            <img src="assets/totvs-logo.png" alt="TOTVS" class="staticrypt-logo-image" />
+                        </div>
+                        <div>
+                            <p class="staticrypt-heading">Bem-vindo ao Portal de Portfólios</p>
+                            <p class="staticrypt-subtitle">PMO Serviços</p>
+                            <div style="height: 10px"></div>
+                            <p class="staticrypt-description">Digite a senha de acesso</p>
+                        </div>
                     </div>
-
-                    <hr class="staticrypt-hr" />
 
                     <form id="staticrypt-form" action="#" method="post">
                         <div class="staticrypt-password-container">
@@ -195,24 +311,24 @@
                                 id="staticrypt-password"
                                 type="password"
                                 name="password"
-                                placeholder="Password"
+                                placeholder="Digite a senha"
                                 autofocus
                             />
 
                             <img
                                 class="staticrypt-toggle-password-visibility"
-                                alt="template_toggle_show"
-                                title="template_toggle_show"
+                                alt="Mostrar senha"
+                                title="Mostrar senha"
                                 src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NDAgNTEyIj48IS0tIUZvbnQgQXdlc29tZSBGcmVlIDYuNS4yIGJ5IEBmb250YXdlc29tZSAtIGh0dHBzOi8vZm9udGF3ZXNvbWUuY29tIExpY2Vuc2UgLSBodHRwczovL2ZvbnRhd2Vzb21lLmNvbS9saWNlbnNlL2ZyZWUgQ29weXJpZ2h0IDIwMjQgRm9udGljb25zLCBJbmMuLS0+PHBhdGggZD0iTTM4LjggNS4xQzI4LjQtMy4xIDEzLjMtMS4yIDUuMSA5LjJTLTEuMiAzNC43IDkuMiA0Mi45bDU5MiA0NjRjMTAuNCA4LjIgMjUuNSA2LjMgMzMuNy00LjFzNi4zLTI1LjUtNC4xLTMzLjdMNTI1LjYgMzg2LjdjMzkuNi00MC42IDY2LjQtODYuMSA3OS45LTExOC40YzMuMy03LjkgMy4zLTE2LjcgMC0yNC42Yy0xNC45LTM1LjctNDYuMi04Ny43LTkzLTEzMS4xQzQ2NS41IDY4LjggNDAwLjggMzIgMzIwIDMyYy02OC4yIDAtMTI1IDI2LjMtMTY5LjMgNjAuOEwzOC44IDUuMXpNMjIzLjEgMTQ5LjVDMjQ4LjYgMTI2LjIgMjgyLjcgMTEyIDMyMCAxMTJjNzkuNSAwIDE0NCA2NC41IDE0NCAxNDRjMCAyNC45LTYuMyA0OC4zLTE3LjQgNjguN0w0MDggMjk0LjVjOC40LTE5LjMgMTAuNi00MS40IDQuOC02My4zYy0xMS4xLTQxLjUtNDcuOC02OS40LTg4LjYtNzEuMWMtNS44LS4yLTkuMiA2LjEtNy40IDExLjdjMi4xIDYuNCAzLjMgMTMuMiAzLjMgMjAuM2MwIDEwLjItMi40IDE5LjgtNi42IDI4LjNsLTkwLjMtNzAuOHpNMzczIDM4OS45Yy0xNi40IDYuNS0zNC4zIDEwLjEtNTMgMTAuMWMtNzkuNSAwLTE0NC02NC41LTE0NC0xNDRjMC02LjkgLjUtMTMuNiAxLjQtMjAuMkw4My4xIDE2MS41QzYwLjMgMTkxLjIgNDQgMjIwLjggMzQuNSAyNDMuN2MtMy4zIDcuOS0zLjMgMTYuNyAwIDI0LjZjMTQuOSAzNS43IDQ2LjIgODcuNyA5MyAxMzEuMUMxNzQuNSA0NDMuMiAyMzkuMiA0ODAgMzIwIDQ4MGM0Ny44IDAgODkuOS0xMi45IDEyNi4yLTMyLjVMMzczIDM4OS45eiIvPjwvc3ZnPg=="
                             />
                         </div>
 
-                        <label id="staticrypt-remember-label" class="staticrypt-remember hidden">
+                        <label id="staticrypt-remember-label" class="staticrypt-remember">
                             <input id="staticrypt-remember" type="checkbox" name="remember" />
                             Remember me
                         </label>
 
-                        <input type="submit" class="staticrypt-decrypt-button" value="DECRYPT" />
+                        <input type="submit" class="staticrypt-decrypt-button" value="ACESSAR" />
                     </form>
                 </div>
             </div>
