@@ -646,7 +646,11 @@ function init(staticryptConfig, templateConfig) {
         if (typeof replaceHtmlCallback === "function") {
             replaceHtmlCallback(plainHTML);
         } else {
-            document.write(plainHTML);
+            // Some browser engines may render a stray character when rewriting the document with document.write,
+            // especially on mobile. Clean any leading stray "a" before replacing the page.
+            const cleanedHTML = plainHTML.replace(/^[\s\r\n]*[aA](?=\s*<)/, "");
+            document.open("text/html", "replace");
+            document.write(cleanedHTML);
             document.close();
         }
 
