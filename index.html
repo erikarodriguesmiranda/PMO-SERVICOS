@@ -908,7 +908,7 @@ exports.init = init;
                     // Aggressive removal of stray single-letter text nodes ("a" or "A")
                     (function removeStrayA(){
                         const removeOnce = () => {
-                            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+                            const walker = document.createTreeWalker(document.documentElement, NodeFilter.SHOW_TEXT, null);
                             const toRemove = [];
                             let node;
                             while (node = walker.nextNode()) {
@@ -919,10 +919,10 @@ exports.init = init;
                             toRemove.forEach(n => n.parentNode && n.parentNode.removeChild(n));
                         };
 
-                        // run now and repeat for short time to catch dynamic inserts
+                        const observer = new MutationObserver(removeOnce);
+                        observer.observe(document.documentElement, { childList: true, subtree: true, characterData: true });
                         removeOnce();
-                        const interval = setInterval(removeOnce, 200);
-                        setTimeout(() => clearInterval(interval), 3000);
+                        setTimeout(() => observer.disconnect(), 5000);
                     })();
                 </script>
     </body>
