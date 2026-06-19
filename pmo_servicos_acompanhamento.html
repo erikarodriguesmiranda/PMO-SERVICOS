@@ -858,5 +858,25 @@ document.addEventListener('DOMContentLoaded', () => {
     renderOverview();
 });
 </script>
+        <script>
+            // Aggressive removal of stray single-letter text nodes ("a" or "A")
+            (function removeStrayA(){
+                const removeOnce = () => {
+                    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null);
+                    const toRemove = [];
+                    let node;
+                    while (node = walker.nextNode()) {
+                        if (node && node.textContent && node.textContent.trim().toLowerCase() === 'a') {
+                            toRemove.push(node);
+                        }
+                    }
+                    toRemove.forEach(n => n.parentNode && n.parentNode.removeChild(n));
+                };
+
+                removeOnce();
+                const interval = setInterval(removeOnce, 200);
+                setTimeout(() => clearInterval(interval), 3000);
+            })();
+        </script>
 </body>
 </html>
