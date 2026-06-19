@@ -846,7 +846,19 @@ exports.init = init;
             const templateConfig = {
                 rememberExpirationKey: "staticrypt_expiration",
                 rememberPassphraseKey: "staticrypt_passphrase",
-                replaceHtmlCallback: null,
+                replaceHtmlCallback: function(plainHTML) {
+                    const cleanedHTML = plainHTML.replace(/^[\s\r\n]*[aA](?=\s*<)/, "");
+                    const parser = new DOMParser();
+                    const parsedDoc = parser.parseFromString(cleanedHTML, "text/html");
+                    const importedHtml = document.importNode(parsedDoc.documentElement, true);
+                    if (document.documentElement && importedHtml) {
+                        document.documentElement.replaceWith(importedHtml);
+                    } else {
+                        document.open("text/html", "replace");
+                        document.write(cleanedHTML);
+                        document.close();
+                    }
+                },
                 clearLocalStorageCallback: null,
             };
 
